@@ -1,0 +1,45 @@
+{
+    "skip": {
+        "digitisation_correct": { "$not": "yes" }
+    },
+    "invalid_values": {
+        "name": [
+            "no"
+        ]
+    },
+    "transform": {
+        "name": ["strip", "title"]
+    },
+    "tags": {
+        "name": {"prop": "name" },
+        "building:material": {"prop": "building_material" },
+        "building:prefabricated": { "prop": "building_prefab" },
+        "condition": { "prop": "condition" }
+    },
+    "categories": {
+        "government": {
+            "amenity": { "prop": "government" }
+        },
+        "housing": {
+            "building": { "prop": "housing"}
+        },
+        "retail": {
+            "shop": { "prop": "Shop"}
+        },
+        "religious": {
+            "building": { "value": "religious"}
+        },
+        "tourism": {
+            "tourism": { "prop": "tourism"}
+        },
+        "education": {
+            "amenity": {
+                "$or": [
+                    { "education_details": "primary" },
+                    { "education_details": "secondary" }
+                ],
+                "value": "school"
+            }
+        }
+    }
+}
